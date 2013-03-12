@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<black_apps>
+	     <black_app>
+	        <package_name>com.duomi.android</package_name>
+	      </black_app>
+	      <black_app>
+	        <package_name>com.sensky.reader.ReadingJoy_lenovo</package_name>
+	      </black_app>
+	</black_apps>
+	<other_apps delay_time="90">
+	</other_apps>
+	
+</config>
