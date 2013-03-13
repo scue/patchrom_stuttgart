@@ -5665,9 +5665,14 @@
     iput-object p4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerManager:Landroid/os/LocalPowerManager;
 
     .line 789
-    new-instance v6, Lcom/android/internal/policy/impl/KeyguardViewMediator;
+#    new-instance v6, Lcom/android/internal/policy/impl/KeyguardViewMediator;
+#
+#    invoke-direct {v6, p1, p0, p4}, Lcom/android/internal/policy/impl/KeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
+#   miui v4 --> here is v6;
+    invoke-static {p1, p0, p4}, Lcom/android/internal/policy/impl/MiuiClassFactory;->createKeyguardViewMediator(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
-    invoke-direct {v6, p1, p0, p4}, Lcom/android/internal/policy/impl/KeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
+    move-result-object v6
+#
 
     iput-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -7807,8 +7812,16 @@
     .line 2900
     const/16 v17, 0x0
 
+    if-eqz v1, :cond_miui_add1
+
     const/16 v18, 0x1
 
+    goto :goto_miui_add1
+
+    :cond_miui_add1
+    const/16 v18, 0x2
+
+    :goto_miui_add1
     const/16 v19, 0x0
 
     move-object/from16 v0, p0
@@ -8473,7 +8486,8 @@
     :cond_19
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+#    invoke-direct {v0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
 
     move-result v17
 
@@ -8718,7 +8732,8 @@
 
     move/from16 v1, v17
 
-    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+#    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
 
     move-result v17
 

@@ -1,5 +1,6 @@
 .class Lcom/android/internal/policy/impl/PhoneWindowManager$18$1;
-.super Landroid/os/IRemoteCallback$Stub;
+#.super Landroid/os/IRemoteCallback$Stub;
+.super Landroid/app/ProgressDialog;
 .source "PhoneWindowManager.java"
 
 
@@ -32,6 +33,21 @@
     return-void
 .end method
 
+## direct methods add to PhoneWindowManager$21$1.smali, no in here!
+#.method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$18;Landroid/content/Context;I)V
+#    .locals 0
+#    .parameter
+#    .parameter "x0"
+#    .parameter "x1"
+#
+#    .prologue
+#    .line 3282
+#    iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$18$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$18;
+#
+#    invoke-direct {p0, p2, p3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
+#
+#    return-void
+#.end method
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V

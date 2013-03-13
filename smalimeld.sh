@@ -23,7 +23,7 @@ if [[ $# == 0 ]]; then
     echo "$(basename $0) <smali_file>"
     exit 1
 fi
-smali="$1"
+smali=$1
 export LANGUAGE=zh_CN.UTF-8
-meld temp/old_smali/"$smali"  temp/new_smali/"$smali" noline/"$smali" &
+meld temp/old_smali/"$1"  temp/new_smali/"$1" noline/"$1" &
 
