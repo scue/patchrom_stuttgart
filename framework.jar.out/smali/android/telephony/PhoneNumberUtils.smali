@@ -5599,6 +5599,10 @@
 
     move-result-object p0
 
+    invoke-static {p0}, Lmiui/telephony/PhoneNumberUtils;->parseNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
     .line 1841
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 

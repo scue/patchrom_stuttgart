@@ -721,13 +721,37 @@
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/ShutdownThread$CloseDialogReceiver;-><init>(Landroid/content/Context;)V
 
+#***************
+#*** 547,553 ****
+#  
+#      invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+#  
+#!     const v5, 0x1040124
+#  
+#      invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+#  
+#--- 554,562 ----
+#  
+#      invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+#  
+#!     invoke-static {}, Lcom/android/internal/app/ShutdownThread;->getTitleResourceId()I
+#! 
+#!     move-result v5
+#  
+#      invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+#  
+
     .line 130
     .local v0, closer:Lcom/android/internal/app/ShutdownThread$CloseDialogReceiver;
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v4, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x104012c
+#    const v5, 0x104012c
+    invoke-static {}, Lcom/android/internal/app/ShutdownThread;->getTitleResourceId()I
+
+    move-result v5
+
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

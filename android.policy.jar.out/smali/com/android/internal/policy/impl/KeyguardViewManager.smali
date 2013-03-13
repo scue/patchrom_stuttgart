@@ -516,6 +516,11 @@
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     .line 141
+
+    const/4 v1, 0x1
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     or-int/lit8 v1, v1, 0x8

@@ -43,6 +43,8 @@
 
 .field public mInsetIndex:I
 
+.field private mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+
 .field public mUsimPhoneBookManager:Lcom/android/internal/telephony/gsm/UsimPhoneBookManager;
 
 .field phone:Lcom/android/internal/telephony/PhoneBase;
@@ -57,7 +59,6 @@
         }
     .end annotation
 .end field
-
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
@@ -446,16 +447,45 @@
     .line 711
     iget-object v11, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
+#***************
+#*** 386,398 ****
+#  
+#      if-nez v6, :cond_0
+#  
+#!     iget-object v7, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+#  
+#!     iget-object v6, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+#! 
+#!     check-cast v6, Ljava/util/ArrayList;
+#! 
+#!     invoke-virtual {v7, v2, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+#  
+#      :cond_0
+#      invoke-direct {p0, v5, v1}, Lcom/android/internal/telephony/AdnRecordCache;->notifyWaiters(Ljava/util/ArrayList;Landroid/os/AsyncResult;)V
+#--- 394,402 ----
+#  
+#      if-nez v6, :cond_0
+#  
+#!     iget-object v6, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+#  
+#!     invoke-virtual {v6, v2, v1}, Lcom/android/internal/telephony/AdnCacheManager;->handleLoadAllAdnLike(ILandroid/os/AsyncResult;)V
+#  
+#      :cond_0
+#      invoke-direct {p0, v5, v1}, Lcom/android/internal/telephony/AdnRecordCache;->notifyWaiters(Ljava/util/ArrayList;Landroid/os/AsyncResult;)V
+
     if-nez v11, :cond_1
 
     .line 712
-    iget-object v12, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+#    iget-object v12, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+#
+#    iget-object v11, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+#
+#    check-cast v11, Ljava/util/ArrayList;
+#
+#    invoke-virtual {v12, v4, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    iget-object v11, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
 
-    iget-object v11, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v11, Ljava/util/ArrayList;
-
-    invoke-virtual {v12, v4, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v11, v4, v3}, Lcom/android/internal/telephony/AdnCacheManager;->handleLoadAllAdnLike(ILandroid/os/AsyncResult;)V
 
     .line 714
     :cond_1

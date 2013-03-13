@@ -190,12 +190,115 @@
 
 .field public static final UI_MODE_TYPE_SCALE_SMALL:I = 0xc
 
+## direct methods
+#.method static constructor <clinit>()V
+#    .locals 1
+#
+#    .prologue
+#    .line 807
+#    new-instance v0, Landroid/content/res/Configuration$1;
+#
+#    invoke-direct {v0}, Landroid/content/res/Configuration$1;-><init>()V
+#
+#    sput-object v0, Landroid/content/res/Configuration;->CREATOR:Landroid/os/Parcelable$Creator;
+#
+#    return-void
+#.end method
+#
+#.method public constructor <init>()V
+#    .locals 0
+#
+#    .prologue
+#    .line 294
+#    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+#
+#    .line 295
+#    invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
+#
+#    .line 296
+#    return-void
+#.end method
+#
+#.method public constructor <init>(Landroid/content/res/Configuration;)V
+#    .locals 0
+#    .parameter "o"
+#
+#    .prologue
+#    .line 301
+#    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+#
+#    .line 302
+#    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
+#
+#    .line 303
+#    return-void
+#.end method
+#
+#.method private constructor <init>(Landroid/os/Parcel;)V
+#    .locals 0
+#    .parameter "source"
+#
+#    .prologue
+#    .line 821
+#    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+#
+#    .line 822
+#    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
+#
+#    .line 823
+#    return-void
+#.end method
+#
+#.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/res/Configuration$1;)V
+#    .locals 0
+#    .parameter "x0"
+#    .parameter "x1"
+#
+#    .prologue
+#    .line 36
+#    invoke-direct {p0, p1}, Landroid/content/res/Configuration;-><init>(Landroid/os/Parcel;)V
+#
+#    return-void
+#.end method
+#
+#.method public static needNewResources(II)Z
+#    .locals 1
+#    .parameter "configChanges"
+#    .parameter "interestingChanges"
+#
+#    .prologue
+#    .line 704
+#    const/high16 v0, 0x4000
+#
+#    or-int/2addr v0, p1
+#
+#    and-int/2addr v0, p0
+#
+#    if-nez v0, :cond_miui_add1
+#
+#    invoke-static {p0}, Lmiui/content/res/ExtraConfiguration;->needNewResources(I)Z
+#
+#    move-result v0
+#
+#    if-eqz v0, :cond_0
+#
+#    :cond_miui_add1
+#    const/4 v0, 0x1
+#
+#    :goto_0
+#    return v0
+#
+#    :cond_0
+#    const/4 v0, 0x0
+#
+#    goto :goto_0
+#.end method
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 807
     new-instance v0, Landroid/content/res/Configuration$1;
 
     invoke-direct {v0}, Landroid/content/res/Configuration$1;-><init>()V
@@ -206,46 +309,55 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 294
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 295
+    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+
     invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
 
-    .line 296
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/res/Configuration;)V
-    .locals 0
+    .locals 1
     .parameter "o"
 
     .prologue
-    .line 301
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 302
+    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
 
-    .line 303
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 0
+    .locals 1
     .parameter "source"
 
     .prologue
-    .line 821
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 822
+    new-instance v0, Lmiui/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 823
     return-void
 .end method
 
@@ -255,7 +367,6 @@
     .parameter "x1"
 
     .prologue
-    .line 36
     invoke-direct {p0, p1}, Landroid/content/res/Configuration;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -267,7 +378,6 @@
     .parameter "interestingChanges"
 
     .prologue
-    .line 704
     const/high16 v0, 0x4000
 
     or-int/2addr v0, p1

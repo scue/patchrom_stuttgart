@@ -734,7 +734,7 @@
     return-void
 .end method
 
-.method private adjustStatusBarLocked()V
+.method adjustStatusBarLocked()V
     .locals 7
 
     .prologue

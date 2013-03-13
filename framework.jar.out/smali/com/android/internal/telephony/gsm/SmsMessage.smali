@@ -3137,12 +3137,33 @@
 
     goto :goto_0
 
+#*** 1224,1230 ****
+#      :pswitch_data_0
+#      .packed-switch 0x0
+#          :pswitch_1
+#!         :pswitch_0
+#          :pswitch_2
+#          :pswitch_1
+#      .end packed-switch
+#--- 1229,1235 ----
+#      :pswitch_data_0
+#      .packed-switch 0x0
+#          :pswitch_1
+#!         :pswitch_miui_add1
+#          :pswitch_2
+#          :pswitch_1
+#      .end packed-switch
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
+#        :pswitch_0
+#        :pswitch_1
+#        :pswitch_2
+#        :pswitch_0
         :pswitch_1
+        :pswitch_miui_add1
         :pswitch_2
-        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
