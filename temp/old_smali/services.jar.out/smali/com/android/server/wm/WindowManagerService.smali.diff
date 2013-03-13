@@ -1,0 +1,23 @@
+*** ./smali/com/android/server/wm/WindowManagerService.smali	2013-03-13 08:07:18.801353000 +0800
+--- /home/scue/patchrom_ics/stuttgart/temp/new_smali/services.jar.out/./smali/com/android/server/wm/WindowManagerService.smali	2013-03-13 08:03:29.799767000 +0800
+***************
+*** 457,462 ****
+--- 457,464 ----
+      .end annotation
+  .end field
+  
++ .field mRoundedCorners:Lcom/android/server/wm/RoundedCornersSurface;
++ 
+  .field mSafeMode:Z
+  
+  .field mScreenFrozenLock:Landroid/os/PowerManager$WakeLock;
+***************
+*** 613,618 ****
+--- 615,621 ----
+  
+  .field mWindowsFreezingScreen:Z
+  
++ .field mRoundedCorners:Lcom/android/server/wm/RoundedCornersSurface;
+  
+  # direct methods
+  .method static constructor <clinit>()V

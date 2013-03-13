@@ -1,0 +1,19 @@
+*** ./smali/android/widget/Toast$TN.smali	2013-03-13 08:06:24.281016000 +0800
+--- /home/scue/patchrom_ics/stuttgart/temp/new_smali/framework.jar.out/./smali/android/widget/Toast$TN.smali	2013-03-13 08:02:41.825970000 +0800
+***************
+*** 335,337 ****
+--- 335,347 ----
+  
+      return-void
+  .end method
++ 
++ .method static synthetic access$000(Landroid/widget/Toast$TN;)Landroid/view/WindowManager$LayoutParams;
++     .locals 1
++     .parameter "x0"
++ 
++     .prologue
++     iget-object v0, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
++ 
++     return-object v0
++ .end method
+\ No newline at end of file

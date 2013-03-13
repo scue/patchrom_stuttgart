@@ -1,0 +1,19 @@
+*** KeyguardViewMediator.smali	2013-03-13 08:03:31.089164000 +0800
+--- KeyguardViewMediator.smali	2013-03-13 08:00:30.809409000 +0800
+***************
+*** 622,628 ****
+      return-void
+  .end method
+  
+! .method private adjustStatusBarLocked()V
+      .locals 6
+  
+      .prologue
+--- 622,628 ----
+      return-void
+  .end method
+  
+! .method adjustStatusBarLocked()V
+      .locals 6
+  
+      .prologue

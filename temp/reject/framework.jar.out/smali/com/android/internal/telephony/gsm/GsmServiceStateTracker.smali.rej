@@ -1,0 +1,35 @@
+*** GsmServiceStateTracker.smali	2013-03-13 08:06:40.833903000 +0800
+--- GsmServiceStateTracker.smali	2013-03-13 08:02:58.806146000 +0800
+***************
+*** 6630,6647 ****
+      move-result v2
+  
+      .local v2, rule:I
+!     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
+! 
+!     iget-object v8, v8, Lcom/android/internal/telephony/gsm/GSMPhone;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
+! 
+!     invoke-virtual {v8}, Lcom/android/internal/telephony/IccRecords;->getServiceProviderName()Ljava/lang/String;
+  
+      move-result-object v5
+  
+      .local v5, spn:Ljava/lang/String;
+!     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
+! 
+!     invoke-virtual {v8}, Landroid/telephony/ServiceState;->getOperatorAlphaLong()Ljava/lang/String;
+  
+      move-result-object v1
+  
+--- 6634,6645 ----
+      move-result v2
+  
+      .local v2, rule:I
+!     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getSpn()Ljava/lang/String;
+  
+      move-result-object v5
+  
+      .local v5, spn:Ljava/lang/String;
+!     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getPlmn()Ljava/lang/String;
+  
+      move-result-object v1
+  

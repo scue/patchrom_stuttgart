@@ -1,0 +1,43 @@
+*** ./smali/com/android/internal/os/ZygoteConnection.smali	2013-03-13 08:06:29.527179000 +0800
+--- /home/scue/patchrom_ics/stuttgart/temp/new_smali/framework.jar.out/./smali/com/android/internal/os/ZygoteConnection.smali	2013-03-13 08:02:46.858613000 +0800
+***************
+*** 242,260 ****
+      .parameter "args"
+  
+      .prologue
+!     const-string v0, "1"
+  
+!     const-string v1, "ro.debuggable"
+  
+!     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+  
+!     move-result-object v1
+  
+!     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  
+!     move-result v0
+  
+!     if-eqz v0, :cond_0
+  
+      iget v0, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
+  
+--- 242,260 ----
+      .parameter "args"
+  
+      .prologue
+!     #const-string v0, "1"
+  
+!     #const-string v1, "ro.debuggable"
+  
+!     #invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+  
+!     #move-result-object v1
+  
+!     #invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+  
+!     #move-result v0
+  
+!     #if-eqz v0, :cond_0
+  
+      iget v0, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
+  

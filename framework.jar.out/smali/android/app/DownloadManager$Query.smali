@@ -27,9 +27,9 @@
 
 .field private mOnlyIncludeVisibleInDownloadsUi:Z
 
-.field private mOrderByColumn:Ljava/lang/String;
+.field mOrderByColumn:Ljava/lang/String;
 
-.field private mOrderDirection:I
+.field mOrderDirection:I
 
 .field private mStatusFlags:Ljava/lang/Integer;
 
@@ -234,6 +234,25 @@
 
 
 # virtual methods
+.method addExtraSelectionParts(Ljava/util/List;)V
+    .locals 0
+    .parameter
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .local p1, selectionParts:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    return-void
+.end method
+
 .method public orderBy(Ljava/lang/String;I)Landroid/app/DownloadManager$Query;
     .locals 3
     .parameter "column"

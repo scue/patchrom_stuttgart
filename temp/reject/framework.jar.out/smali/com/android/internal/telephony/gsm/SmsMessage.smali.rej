@@ -1,0 +1,19 @@
+*** SmsMessage.smali	2013-03-13 08:06:41.527301000 +0800
+--- SmsMessage.smali	2013-03-13 08:02:59.380417000 +0800
+***************
+*** 1224,1230 ****
+      :pswitch_data_0
+      .packed-switch 0x0
+          :pswitch_1
+!         :pswitch_0
+          :pswitch_2
+          :pswitch_1
+      .end packed-switch
+--- 1229,1235 ----
+      :pswitch_data_0
+      .packed-switch 0x0
+          :pswitch_1
+!         :pswitch_miui_add1
+          :pswitch_2
+          :pswitch_1
+      .end packed-switch

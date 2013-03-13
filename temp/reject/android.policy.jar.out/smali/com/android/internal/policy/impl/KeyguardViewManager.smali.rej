@@ -1,0 +1,21 @@
+*** KeyguardViewManager.smali	2013-03-13 08:03:39.754923000 +0800
+--- KeyguardViewManager.smali	2013-03-13 08:00:31.136924000 +0800
+***************
+*** 531,536 ****
+      iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      :cond_4
+      iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      or-int/lit8 v1, v1, 0x8
+--- 537,546 ----
+      iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      :cond_4
++     const/4 v1, 0x1
++ 
++     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
++ 
+      iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      or-int/lit8 v1, v1, 0x8

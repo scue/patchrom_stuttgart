@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x8
     name = "CursorTranslator"
 .end annotation
 
@@ -198,8 +198,21 @@
 
     cmp-long v5, v0, v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_miui_add1
 
+    const-string v5, "hint"
+
+    invoke-virtual {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-virtual {p0, v5}, Landroid/app/DownloadManager$CursorTranslator;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_miui_add1
     const-wide/16 v5, 0x0
 
     cmp-long v5, v0, v5
@@ -281,7 +294,7 @@
     goto :goto_0
 .end method
 
-.method private getPausedReason(I)J
+.method getPausedReason(I)J
     .locals 2
     .parameter "status"
 
@@ -334,20 +347,17 @@
     .parameter "status"
 
     .prologue
-    .line 1504
-    invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+    invoke-static {p1}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 1512
     const-wide/16 v0, 0x0
 
     :goto_0
     return-wide v0
 
-    .line 1506
     :sswitch_0
     invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getErrorCode(I)J
 
@@ -357,7 +367,7 @@
 
     .line 1509
     :sswitch_1
-    invoke-direct {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getPausedReason(I)J
+    invoke-virtual {p0, p1}, Landroid/app/DownloadManager$CursorTranslator;->getPausedReason(I)J
 
     move-result-wide v0
 
@@ -407,21 +417,19 @@
     .end packed-switch
 .end method
 
-.method private translateStatus(I)I
+.method static translateStatus(I)I
     .locals 1
     .parameter "status"
 
     .prologue
-    .line 1577
-    packed-switch p1, :pswitch_data_0
+    packed-switch p0, :pswitch_data_0
 
-    .line 1594
     :pswitch_0
     sget-boolean v0, Landroid/app/DownloadManager$CursorTranslator;->$assertionsDisabled:Z
 
     if-nez v0, :cond_0
 
-    invoke-static {p1}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
+    invoke-static {p0}, Landroid/provider/Downloads$Impl;->isStatusError(I)Z
 
     move-result v0
 
@@ -563,7 +571,7 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
+    invoke-static {v0}, Landroid/app/DownloadManager$CursorTranslator;->translateStatus(I)I
 
     move-result v0
 

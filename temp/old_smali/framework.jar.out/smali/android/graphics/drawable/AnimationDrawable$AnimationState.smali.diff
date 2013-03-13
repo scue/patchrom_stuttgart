@@ -1,0 +1,31 @@
+*** ./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-03-13 08:04:27.427087000 +0800
+--- /home/scue/patchrom_ics/stuttgart/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-03-13 08:01:08.426563000 +0800
+***************
+*** 9,21 ****
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x1a
+      name = "AnimationState"
+  .end annotation
+  
+  
+  # instance fields
+! .field private mDurations:[I
+  
+  .field private mOneShot:Z
+  
+--- 9,21 ----
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x1c
+      name = "AnimationState"
+  .end annotation
+  
+  
+  # instance fields
+! .field mDurations:[I
+  
+  .field private mOneShot:Z
+  

@@ -1,0 +1,19 @@
+*** PackageManagerService.smali	2013-03-13 08:07:06.692982000 +0800
+--- PackageManagerService.smali	2013-03-13 08:03:23.469017000 +0800
+***************
+*** 12702,12708 ****
+  
+      iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
+  
+!     const v10, 0x10302fc
+  
+      iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
+  
+--- 12759,12765 ----
+  
+      iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
+  
+!     const v10, 0x60d0020
+  
+      iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
+  

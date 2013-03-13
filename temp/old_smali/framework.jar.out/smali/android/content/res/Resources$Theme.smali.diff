@@ -1,0 +1,30 @@
+*** ./smali/android/content/res/Resources$Theme.smali	2013-03-13 08:04:19.428387000 +0800
+--- /home/scue/patchrom_ics/stuttgart/temp/new_smali/framework.jar.out/./smali/android/content/res/Resources$Theme.smali	2013-03-13 08:01:01.409741000 +0800
+***************
+*** 1,4 ****
+! .class public final Landroid/content/res/Resources$Theme;
+  .super Ljava/lang/Object;
+  .source "Resources.java"
+  
+--- 1,4 ----
+! .class public Landroid/content/res/Resources$Theme;
+  .super Ljava/lang/Object;
+  .source "Resources.java"
+  
+***************
+*** 9,15 ****
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x11
+      name = "Theme"
+  .end annotation
+  
+--- 9,15 ----
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x1
+      name = "Theme"
+  .end annotation
+  

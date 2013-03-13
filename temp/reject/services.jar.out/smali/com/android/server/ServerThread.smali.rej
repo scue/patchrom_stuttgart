@@ -1,0 +1,19 @@
+*** ServerThread.smali	2013-03-13 08:07:14.663847000 +0800
+--- ServerThread.smali	2013-03-13 08:03:27.956496000 +0800
+***************
+*** 932,938 ****
+  
+      move-object v11, v6
+  
+!     invoke-direct/range {v8 .. v13}, Lcom/android/server/net/NetworkPolicyManagerService;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/IPowerManager;Landroid/net/INetworkStatsService;Landroid/os/INetworkManagementService;)V
+      :try_end_19
+      .catch Ljava/lang/Throwable; {:try_start_19 .. :try_end_19} :catch_d
+  
+--- 932,938 ----
+  
+      move-object v11, v6
+  
+!     invoke-direct/range {v8 .. v13}, Lcom/android/server/net/MiuiNetworkPolicyManagerService;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/IPowerManager;Landroid/net/INetworkStatsService;Landroid/os/INetworkManagementService;)V
+      :try_end_19
+      .catch Ljava/lang/Throwable; {:try_start_19 .. :try_end_19} :catch_d
+  
