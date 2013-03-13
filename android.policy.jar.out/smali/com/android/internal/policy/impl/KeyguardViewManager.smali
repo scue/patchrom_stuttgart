@@ -492,6 +492,30 @@
     or-int/2addr v4, v1
 
     :cond_2
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "window"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/WindowManager;
+
+    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/ActivityManager;->isHighEndGfx(Landroid/view/Display;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    or-int/2addr v4, v10
+
+    :cond_3
+
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
     const/4 v1, -0x1
@@ -515,6 +539,45 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
+#
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "window"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/WindowManager;
+
+    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/ActivityManager;->isHighEndGfx(Landroid/view/Display;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    or-int/2addr v1, v10
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    or-int/lit8 v1, v1, 0x2
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    :cond_7
+    const/4 v1, 0x1
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
+#    
     .line 141
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
