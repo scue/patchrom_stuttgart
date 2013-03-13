@@ -1,2 +1,11 @@
 #cache file
 *.swp
+
+#out dir
+out/
+!out/target_files.zip
+
+#other
+backup/
+origin/
+noline/
