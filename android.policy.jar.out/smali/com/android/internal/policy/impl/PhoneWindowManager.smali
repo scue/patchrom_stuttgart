@@ -8070,20 +8070,20 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     and-int/lit8 v13, v13, -0x2
-
-    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    if-eqz v10, :cond_0
-
-    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    new-instance v11, Landroid/content/Intent;
-
-    const-string v12, "android.intent.action.KEYCODE_POWER_UP"
-
-    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v10, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+#   don't add here!
+#    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    if-eqz v10, :cond_0
+#
+#    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    new-instance v11, Landroid/content/Intent;
+#
+#    const-string v12, "android.intent.action.KEYCODE_POWER_UP"
+#
+#    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+#
+#    invoke-virtual {v10, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_3
 
@@ -8192,6 +8192,21 @@
     invoke-virtual {v0, v1, v10}, Lcom/android/internal/policy/impl/PhoneWindowManager;->handleVolumeKey(II)V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+
+#   add here    
+#    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    if-eqz v10, :cond_0
+#
+#    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    new-instance v11, Landroid/content/Intent;
+#
+#    const-string v12, "android.intent.action.KEYCODE_POWER_UP"
+#
+#    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+#
+#    invoke-virtual {v10, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_3
 
@@ -8753,6 +8768,42 @@
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPendingPowerKeyUpCanceled:Z
+
+##  v10 --> v0 2013年03月14日 11时30分34秒 HKT
+#    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    if-eqz v0, :cond_0
+#
+#    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+#
+#    new-instance v1, Landroid/content/Intent;
+#
+#    const-string v2, "android.intent.action.KEYCODE_POWER_UP"
+#
+#    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+#
+#    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+##    
+
+    move-object/from16 v1, p0
+
+    iget-object v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    if-eqz v0, :cond_33
+
+    new-instance v21, Landroid/content/Intent;
+
+    const-string v22, "android.intent.action.KEYCODE_POWER_UP"
+
+    invoke-direct/range {v21 .. v22}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :cond_33
+    # end
 
     goto/16 :goto_3
 

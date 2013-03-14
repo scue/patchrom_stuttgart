@@ -3,6 +3,7 @@
 
 #out dir
 out/
+out.dex
 !out/target_files.zip
 
 #other

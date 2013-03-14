@@ -1,6 +1,5 @@
 .class Lcom/android/internal/policy/impl/PhoneWindowManager$18$1;
-#.super Landroid/os/IRemoteCallback$Stub;
-.super Landroid/app/ProgressDialog;
+.super Landroid/os/IRemoteCallback$Stub;
 .source "PhoneWindowManager.java"
 
 

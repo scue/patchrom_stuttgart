@@ -510,11 +510,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6
 
     or-int/2addr v4, v10
 
-    :cond_3
+    :cond_6
 
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
