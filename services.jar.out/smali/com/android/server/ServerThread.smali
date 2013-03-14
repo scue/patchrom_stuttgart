@@ -1406,9 +1406,15 @@
 
     move-object v11, v6
 
-    invoke-direct/range {v8 .. v13}, Lcom/android/server/net/NetworkPolicyManagerService;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/IPowerManager;Landroid/net/INetworkStatsService;Landroid/os/INetworkManagementService;)V
+#    invoke-direct/range {v8 .. v13}, Lcom/android/server/net/NetworkPolicyManagerService;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/IPowerManager;Landroid/net/INetworkStatsService;Landroid/os/INetworkManagementService;)V
+#    :try_end_1d
+#    .catch Ljava/lang/Throwable; {:try_start_1d .. :try_end_1d} :catch_d
+
+## start
+    invoke-direct/range {v8 .. v13}, Lcom/android/server/net/MiuiNetworkPolicyManagerService;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/IPowerManager;Landroid/net/INetworkStatsService;Landroid/os/INetworkManagementService;)V
     :try_end_1d
     .catch Ljava/lang/Throwable; {:try_start_1d .. :try_end_1d} :catch_d
+## end    
 
     .line 366
     .end local v67           #networkPolicy:Lcom/android/server/net/NetworkPolicyManagerService;
