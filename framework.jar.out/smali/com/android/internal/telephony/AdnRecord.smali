@@ -537,6 +537,11 @@
 
     and-int/lit16 v3, v4, 0xff
 
+## start
+    .local v3, numberLength:I
+    goto :cond_0
+## end
+
     .line 576
     .local v3, numlen:I
     add-int/lit8 v4, v1, 0x1
@@ -1787,19 +1792,21 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/internal/telephony/AdnRecord;->sne:Ljava/lang/String;
 
-    invoke-static {v5}, Lcom/android/internal/telephony/GsmAlphabet;->isAsciiStringToGsm8BitUnpackedField(Ljava/lang/String;)[B
-
-    move-result-object v0
+#    invoke-static {v5}, Lcom/android/internal/telephony/GsmAlphabet;->isAsciiStringToGsm8BitUnpackedField(Ljava/lang/String;)[B
+#
+#    move-result-object v0
 
     .line 495
-    .local v0, byteTag:[B
+#    .local v0, byteTag:[B
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    array-length v7, v0
-
-    invoke-static {v0, v5, v4, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+#    array-length v7, v0
+#
+#    invoke-static {v0, v5, v4, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+## v5 -- > v7, v2 --> v0    
+    invoke-static {v0, v5, v3}, Lcom/android/internal/telephony/MiuiAdnUtils;->encodeAlphaTag([BLjava/lang/String;I)Z
     :try_end_0
     .catch Lcom/android/internal/telephony/EncodeException; {:try_start_0 .. :try_end_0} :catch_0
 

@@ -16,7 +16,7 @@
 
 .field public static final ADN:I = 0x1
 
-.field private static final DBG:Z = true
+.field static final DBG:Z = false
 
 .field public static final FDN:I = 0x2
 
@@ -1533,6 +1533,16 @@
 
     .line 438
     .local v1, retVal:Ljava/lang/String;
+
+## start
+    const/4 v2, 0x1
+
+    if-gt v0, v2, :cond_miui_add1
+
+    return-object v1
+
+    :cond_miui_add1
+## end    
     if-lez v0, :cond_0
 
     const/4 v2, 0x0

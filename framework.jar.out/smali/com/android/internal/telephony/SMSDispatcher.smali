@@ -1014,15 +1014,23 @@
 
     move-result-object v1
 
+#    invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
+#
+#    move-result-object v2
+#
+#    iget-object v3, v13, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
+#
+#    iget v3, v3, Lcom/android/internal/telephony/SmsHeader$PortAddrs;->destPort:I
+#
+#    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;I)I
+
+## start    
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, v13, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
-
-    iget v3, v3, Lcom/android/internal/telephony/SmsHeader$PortAddrs;->destPort:I
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;I)I
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;)I
+## end
 
     move-result v8
 
@@ -1140,6 +1148,7 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/SMSDispatcher;->dispatch(Landroid/content/Intent;Ljava/lang/String;)V
 
     .line 1015
+    :goto_miui_add1
     return-void
 .end method
 
@@ -1230,11 +1239,32 @@
 .end method
 
 .method protected dispatchPortAddressedPdus([[BI)V
-    .locals 4
+    .locals 5
     .parameter "pdus"
     .parameter "port"
 
     .prologue
+## start    
+    iget-object v2, p0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
+
+    invoke-static {v2, p1}, Lmiui/provider/ExtraTelephony;->checkFirewallForSms(Landroid/content/Context;[[B)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_miui_add1
+
+    const/4 v2, 0x1
+
+    const/4 v3, -0x1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p0, v2, v3, v4}, Lcom/android/internal/telephony/SMSDispatcher;->acknowledgeLastIncomingSms(ZILandroid/os/Message;)V
+
+    goto :goto_miui_add1
+
+    :cond_miui_add1
+## end    
     .line 1052
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -3886,11 +3916,17 @@
 
     move-result-object v4
 
+#    move-object/from16 v0, p2
+#
+#    move/from16 v1, p8
+#
+#    invoke-virtual {v3, v4, v0, v1}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;I)I
+
+## start
     move-object/from16 v0, p2
 
-    move/from16 v1, p8
-
-    invoke-virtual {v3, v4, v0, v1}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;I)I
+    invoke-virtual {v3, v4, v0}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;)I
+## end    
 
     move-result v3
 

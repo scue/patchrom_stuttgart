@@ -4716,6 +4716,12 @@
 
     move-result-object p0
 
+## start    
+    invoke-static {p0}, Lmiui/telephony/PhoneNumberUtils;->parseNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+## end    
+
     .line 1626
     if-eqz p1, :cond_3
 

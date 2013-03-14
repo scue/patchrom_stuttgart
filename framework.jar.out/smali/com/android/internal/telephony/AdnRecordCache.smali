@@ -43,6 +43,8 @@
 
 .field public mInsetIndex:I
 
+.field private mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+
 .field public mUsimPhoneBookManager:Lcom/android/internal/telephony/gsm/UsimPhoneBookManager;
 
 .field phone:Lcom/android/internal/telephony/PhoneBase;
@@ -449,13 +451,18 @@
     if-nez v11, :cond_1
 
     .line 712
-    iget-object v12, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
-
-    iget-object v11, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v11, Ljava/util/ArrayList;
-
-    invoke-virtual {v12, v4, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+#    iget-object v12, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+#
+#    iget-object v11, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
+#
+#    check-cast v11, Ljava/util/ArrayList;
+#
+#    invoke-virtual {v12, v4, v11}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+## start v7 --> v12, v6 --> v11, v1 --> v3, v2 --v4;
+     iget-object v11, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+  
+     invoke-virtual {v11, v4, v3}, Lcom/android/internal/telephony/AdnCacheManager;->handleLoadAllAdnLike(ILandroid/os/AsyncResult;)V
+## end    
 
     .line 714
     :cond_1

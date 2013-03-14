@@ -10,3 +10,6 @@ out.dex
 backup/
 origin/
 noline/
+
+#reject list
+rejectlist.txt
